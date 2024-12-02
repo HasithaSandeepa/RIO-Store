@@ -1,4 +1,3 @@
-// src/components/Footer.jsx
 import { Box, Typography, IconButton } from "@mui/material";
 import { Facebook, Twitter, Instagram, LinkedIn } from "@mui/icons-material";
 

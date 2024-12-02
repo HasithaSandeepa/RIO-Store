@@ -43,13 +43,6 @@ const ProductList = () => {
       </Typography>
       <Box sx={{ mb: 3, display: "flex", gap: 2, justifyContent: "center" }}>
         <TextField
-          label="Search by Name"
-          variant="outlined"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          sx={{ width: "200px" }}
-        />
-        <TextField
           select
           label="Category"
           value={selectedCategory}
@@ -66,6 +59,13 @@ const ProductList = () => {
           <MenuItem value="Watch">Watch</MenuItem>
           <MenuItem value="Headset">Headset</MenuItem>
         </TextField>
+        <TextField
+          label="Search by Name"
+          variant="outlined"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          sx={{ width: "200px" }}
+        />
         <TextField
           label="Max Price"
           type="number"

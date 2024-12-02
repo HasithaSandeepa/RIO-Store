@@ -1,8 +1,16 @@
-// src/components/Auth/Login.jsx
-import { TextField, Button, Box, Typography, Paper } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Box,
+  Typography,
+  Paper,
+  Snackbar,
+  Alert,
+} from "@mui/material";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useAuth } from "../../context/AuthContext";
+import { useState } from "react";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -15,6 +23,7 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
   const { login } = useAuth();
+  const [openSnackbar, setOpenSnackbar] = useState(false);
 
   const handleSubmit = (values, { setSubmitting }) => {
     setTimeout(() => {
@@ -22,8 +31,13 @@ const Login = () => {
         email: values.email,
         name: values.email.split("@")[0],
       });
+      setOpenSnackbar(true); // Show the Snackbar when login is successful
       setSubmitting(false);
     }, 400);
+  };
+
+  const handleCloseSnackbar = () => {
+    setOpenSnackbar(false); // Close the Snackbar
   };
 
   return (
@@ -96,6 +110,21 @@ const Login = () => {
           )}
         </Formik>
       </Paper>
+
+      {/* Snackbar notification for successful login */}
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000} // Automatically hide after 6 seconds
+        onClose={handleCloseSnackbar}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          Login successful!
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

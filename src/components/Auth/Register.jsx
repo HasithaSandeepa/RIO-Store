@@ -1,4 +1,3 @@
-// src/components/Auth/Register.jsx
 import { TextField, Button, Box, Typography, Paper } from "@mui/material";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";

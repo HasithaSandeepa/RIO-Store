@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useState } from "react";
 import {
   Container,
@@ -14,6 +13,9 @@ import Register from "./components/Auth/Register";
 import ProductList from "./components/Products/ProductList";
 import Cart from "./components/Cart/Cart";
 import Footer from "./components/Footer/Footer";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import HomeIcon from "@mui/icons-material/Home";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 function App() {
   const [showLogin, setShowLogin] = useState(true);
@@ -35,13 +37,30 @@ function App() {
           </Typography>
           {user ? (
             <>
-              <Button color="inherit" onClick={() => setShowCart(false)}>
-                Products
+              {/* Products Button with Icon */}
+              <Button
+                color="inherit"
+                onClick={() => setShowCart(false)}
+                startIcon={<HomeIcon />}
+              >
+                Products |
               </Button>
-              <Button color="inherit" onClick={() => setShowCart(true)}>
-                Cart
+
+              {/* Cart Button with Icon */}
+              <Button
+                color="inherit"
+                onClick={() => setShowCart(true)}
+                startIcon={<ShoppingCartIcon />}
+              >
+                Cart |
               </Button>
-              <Button color="inherit" onClick={logout}>
+
+              {/* Logout Button with Icon */}
+              <Button
+                color="inherit"
+                onClick={logout}
+                startIcon={<LogoutIcon />}
+              >
                 Logout
               </Button>
             </>
@@ -67,6 +86,7 @@ function App() {
           <ProductList />
         )}
       </Container>
+
       <Footer />
     </Box>
   );
