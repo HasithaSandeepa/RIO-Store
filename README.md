@@ -2,6 +2,8 @@
 
 **RIO Store** is an e-commerce web application built with React and Material UI. It provides a simple and user-friendly shopping experience, including product listings, a shopping cart, and authentication features. Users can log in, browse products, add items to the cart, and proceed to checkout.
 
+<img width="1679" alt="RIO Store" src="https://github.com/user-attachments/assets/c312729a-acb0-4712-a5eb-78546bc06283" />
+
 ---
 
 ## Table of Contents
